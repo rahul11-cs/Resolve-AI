@@ -33,7 +33,7 @@ Experience the complete end-to-end user journey in under 40 seconds: from raw er
 
 ### 1. Resolve AI Search & Evidence Ranking Interface
 *Semantic error search, technology/error classification, and Wilson confidence ranking.*
-![Plan Screenshot 1 - Search Interface](plan/screenshots/01_search_interface.png)
+![Plan Screenshot 1 - Search Interface](plan/Screenshot 2026-11-10 163505.png)
 
 ### 2. Engineering Plan & IBM Db2 Integration Setup
 *Multi-phase `plan/` specification alongside IBM Db2 connection and vector store implementation.*
@@ -41,7 +41,7 @@ Experience the complete end-to-end user journey in under 40 seconds: from raw er
 
 ### 3. Production Security & Managed Db2 Architecture
 *End-to-end production architecture covering secrets, TLS/SSL, and managed IBM Db2 on Cloud.*
-![Plan Screenshot 3 - Production Architecture](plan/screenshots/03_production_architecture.png)
+![Plan Screenshot 3 - Production Architecture](plan/
 
 ---
 
