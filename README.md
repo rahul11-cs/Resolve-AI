@@ -53,7 +53,7 @@ Experience the complete end-to-end user journey in under 40 seconds: from raw er
 
 ### 2. Empirical Wilson Confidence Lower Bound Ranking
 *Battle-tested 23 of 26 community fixes outrank volatile 1 of 1 cold-starts via Wilson 95% confidence lower bounds.*
-![02 Wilson Ranking](docs/screenshots/02_wilson_ranking.png)
+![02 Wilson Ranking](plan/Screenshot 2026-11-10 163505.png)
 
 ### 3. LangChain Conversational AI Troubleshooting Assistant
 *Interactive troubleshooting chain executing `RunnableSequence[PromptTemplate -> Db2Retriever -> OutputParser]` with sub-70ms vector lookup.*
