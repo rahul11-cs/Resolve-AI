@@ -55,7 +55,7 @@ DB2_PASSWORD=your_secure_db2_password
 DB2_SECURITY=SSL
 
 # Application Configuration
-FRONTEND_ORIGIN=http://localhost:3000
+FRONTEND_URL=https://resolve-ai.vercel.app
 PORT=8000
 ```
 
@@ -85,19 +85,19 @@ Verify your deployment against the live API endpoints:
 
 ```bash
 # 1. Health check (verifies live connection to SYSIBM.SYSDUMMY1)
-curl http://localhost:8000/health
+curl https://your-backend.railway.app/health
 # Expected: {"status": "healthy", "database": "connected", "vector_store": "db2", ...}
 
 # 2. Test semantic solve
-curl -X POST http://localhost:8000/api/solve \
+curl -X POST https://your-backend.railway.app/api/solve \
   -H "Content-Type: application/json" \
   -d '{"query": "docker engine not running"}'
 
 # 3. Test vote submission
-curl -X POST http://localhost:8000/api/vote \
+curl -X POST https://your-backend.railway.app/api/vote \
   -H "Content-Type: application/json" \
   -d '{"solution_id": "docker-service-001", "outcome": "worked", "session_id": "sess-verify-1"}'
 
 # 4. Test analytics telemetry
-curl http://localhost:8000/api/analytics
+curl https://your-backend.railway.app/api/analytics
 ```

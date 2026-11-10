@@ -47,7 +47,7 @@ services:
       - OLLAMA_BASE_URL=http://ollama:11434
       - LLM_MODEL=granite4.2:3b
       - EMBED_MODEL=nomic-embed-text:v1.5
-      - FRONTEND_ORIGIN=http://localhost:3000
+      - FRONTEND_URL=https://resolve-ai.vercel.app
     depends_on:
       db2:
         condition: service_healthy
@@ -61,7 +61,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - VITE_API_URL=http://localhost:8000
+      - VITE_API_URL=https://your-backend.railway.app
     depends_on:
       - api
     restart: unless-stopped
@@ -80,5 +80,5 @@ docker compose up --build -d
 
 # Check cluster health
 docker compose ps
-curl http://localhost:8000/health
+curl https://your-backend.railway.app/health
 ```

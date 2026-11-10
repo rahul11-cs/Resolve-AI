@@ -109,7 +109,7 @@ IBM Db2 serves as the unified relational and vector database for the platform:
 
 Troubleshooting fixes ranked by what actually worked for other engineers. Paste an error message, get matching fixes, see why each one matched, and vote on whether it worked. Rankings use the Wilson 95% lower bound so one lucky vote cannot outrank a fix with a long track record.
 
-**Live app:** `https://<your-project>.vercel.app` (add the real URL after you deploy)
+**Live app:** [https://resolve-ai.vercel.app](https://resolve-ai.vercel.app)
 
 ## What it does
 - Error-code extraction (`SQL30082N`, `EADDRINUSE`, ...) and technology detection (Docker, Db2, PostgreSQL, Python, Git, React, Node.js, Kubernetes, Linux) before ranking, both used to boost matching fixes.
@@ -151,13 +151,17 @@ Ranking: `score = min(1, similarity x boosts) x quality x 2`, where `quality = w
 ## Phases
 1. Seed knowledge base and retrieval  2. Wilson ranking and voting  3. Explainability, insights, knowledge base  4. Analytics and benchmark  5. Production deployment (Vercel, Railway, Db2 on Cloud)
 
+## Deployment (Vercel + Railway)
+- **Frontend (Vercel):** Connect the repository, keep the Vite framework preset (`npm run build`, output directory `dist`), and set `VITE_API_URL` to your Railway FastAPI URL (e.g., `https://your-backend.railway.app`). Live frontend origin: `https://resolve-ai.vercel.app`.
+- **Backend (Railway):** Deploy from `backend/` (`uvicorn main:app --host 0.0.0.0 --port $PORT`). Set `FRONTEND_URL=https://resolve-ai.vercel.app` (plus optional `CORS_EXTRA_ORIGINS`) and your IBM Db2 credentials (`DB2_HOST`, `DB2_PORT`, `DB2_DATABASE`, `DB2_USER`, `DB2_PASSWORD`, `DB2_SSL`).
+
 ## Run locally
 ```bash
 cd backend && pip install -r requirements.txt && uvicorn main:app --reload --port 8000
 # new terminal, from the project root:
-echo "VITE_API_URL=http://127.0.0.1:8000" > .env.local && npm install && npm run dev
+echo "VITE_API_URL=https://your-backend.railway.app" > .env.local && npm install && npm run dev
 ```
-Set `FRONTEND_URL` to the dev server origin for CORS. Deployment steps: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Set `FRONTEND_URL` to your frontend origin for CORS. Deployment steps: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ---
 
@@ -188,7 +192,7 @@ DB2_PORT=50001
 DB2_DATABASE=BLUDB
 DB2_USER=resolve_app
 DB2_PASSWORD=your_secure_db2_password
-FRONTEND_ORIGIN=http://localhost:3000
+FRONTEND_URL=https://resolve-ai.vercel.app
 PORT=8000
 ```
 
@@ -247,5 +251,5 @@ $$\text{WilsonLowerBound} = \frac{p + \frac{z^2}{2n} - z \sqrt{\frac{p(1-p) + z^
 
 ---
 
-## Interactive Pitch Deck
-An interactive 10-slide presentation deck is integrated into the web application. Click the **Pitch Deck** button in the header, review `presentation.html` in any browser, or refer to `docs/DEPLOYMENT.md`.
+## Presentation Deck
+The project presentation deck is saved at `Resolve_AI_Presentation.pptx` (and `docs/Resolve_AI_Presentation.pptx`). For deployment details, refer to `docs/DEPLOYMENT.md`.

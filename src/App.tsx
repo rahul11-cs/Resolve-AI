@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useRef } from "react";
+import { Terminal } from "@carbon/icons-react";
 import { Header, TabKey } from "./components/Header";
 import { Home } from "./pages/Home";
 import { KnowledgeBase } from "./pages/KnowledgeBase";
@@ -11,10 +12,12 @@ import { Stats } from "./pages/Stats";
 import { Benchmark } from "./pages/Benchmark";
 import { SubmitFixModal } from "./components/SubmitFixModal";
 import { ApiConfigBanner } from "./components/ApiConfigBanner";
+import { LangChainChatModal } from "./components/LangChainChatModal";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabKey>("troubleshoot");
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const [selectedInitialQuery, setSelectedInitialQuery] = useState<string | null>(null);
   const searchInputRef = useRef<HTMLTextAreaElement | null>(null);
@@ -74,6 +77,35 @@ export default function App() {
         isOpen={isSubmitModalOpen}
         onClose={() => setIsSubmitModalOpen(false)}
         onFixSubmitted={handleFixSubmitted}
+      />
+
+      {/* Floating Bottom-Right AI Assistant Launcher Box */}
+      {!isAssistantOpen && (
+        <button
+          type="button"
+          onClick={() => setIsAssistantOpen(true)}
+          aria-label="Open AI Assistant"
+          title="Open Resolve AI Assistant"
+          className="fixed bottom-5 right-5 z-40 flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-[#0e1722]/95 hover:bg-[#162231] border border-[#38bdf8]/45 hover:border-[#38bdf8] text-white shadow-2xl shadow-black/60 backdrop-blur-md transition-all cursor-pointer group"
+        >
+          <span className="w-8 h-8 rounded-xl bg-[#162231] group-hover:bg-[#1e2f42] border border-[#38bdf8]/40 flex items-center justify-center text-[#38bdf8]">
+            <Terminal size={17} />
+          </span>
+          <span className="text-left pr-1">
+            <span className="block text-xs font-semibold text-white leading-tight">
+              AI Assistant
+            </span>
+            <span className="block text-[10px] font-mono text-[#38bdf8] leading-tight">
+              LangChain RAG
+            </span>
+          </span>
+        </button>
+      )}
+
+      {/* Floating Bottom-Right AI Assistant Panel */}
+      <LangChainChatModal
+        isOpen={isAssistantOpen}
+        onClose={() => setIsAssistantOpen(false)}
       />
 
       {/* Production Footer */}

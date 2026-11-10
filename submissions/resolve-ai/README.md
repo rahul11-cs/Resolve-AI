@@ -89,7 +89,7 @@ npm install
 
 # 3. Start development server
 npm run dev
-# Server running at http://localhost:3000 (0.0.0.0:3000)
+# Server listening on port 3000 (0.0.0.0:3000)
 ```
 
 To run the automated submission validator:

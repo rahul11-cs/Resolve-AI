@@ -29,7 +29,7 @@ db2 -tvf db/schema.sql
 ## 3. Verifying Connectivity
 Verify TLS connectivity on port 50001:
 ```bash
-curl -X GET http://localhost:8000/api/health
+curl -X GET https://your-backend.railway.app/api/health
 ```
 Expected output:
 ```json

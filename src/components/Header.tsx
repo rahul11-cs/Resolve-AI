@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Add, Terminal } from "@carbon/icons-react";
-import { LangChainChatModal } from "./LangChainChatModal";
+import React from "react";
+import { Add } from "@carbon/icons-react";
 
 export type TabKey = "troubleshoot" | "knowledgebase" | "stats" | "benchmark";
 
@@ -16,8 +15,6 @@ export const Header: React.FC<HeaderProps> = ({
   onTabChange,
   onOpenSubmitFix,
 }) => {
-  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
-
   return (
     <header className="sticky top-0 z-40 bg-[#0c131a]/95 backdrop-blur-md border-b border-[#1d2d3e] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
@@ -83,17 +80,6 @@ export const Header: React.FC<HeaderProps> = ({
             >
               Benchmark
             </button>
-
-            {/* LangChain Assistant Direct Trigger */}
-            <button
-              type="button"
-              onClick={() => setIsAssistantOpen(true)}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-[#38bdf8] bg-[#162231]/70 hover:bg-[#162231] border border-[#38bdf8]/30 transition-colors cursor-pointer"
-              title="Open LangChain AI Assistant"
-            >
-              <Terminal size={13} />
-              <span>AI Assistant</span>
-            </button>
           </nav>
         </div>
 
@@ -126,12 +112,6 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
       </div>
-
-      {/* LangChain Assistant Modal */}
-      <LangChainChatModal
-        isOpen={isAssistantOpen}
-        onClose={() => setIsAssistantOpen(false)}
-      />
     </header>
   );
 };

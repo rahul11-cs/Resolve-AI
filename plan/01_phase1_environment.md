@@ -7,7 +7,7 @@ Confirm runtime environment prerequisites, install all required dependencies and
 - **Operating System**: Linux x86_64 / macOS / Windows WSL2
 - **Python**: 3.10+ (tested with 3.10.12 and 3.11)
 - **Node.js**: 20+ (current: v22.23.2)
-- **Local LLM Engine**: Ollama running locally at `http://localhost:11434`
+- **LLM Engine**: Ollama endpoint configured via `EMBED_BASE_URL`
   - Model 1: `granite4.2:3b` (IBM Granite 3B instruct for precise command rewrite)
   - Model 2: `nomic-embed-text:v1.5` (768-dimensional dense vector embeddings)
 - **Database Engine**: IBM Db2 12.1.x Community Edition on port 50000
