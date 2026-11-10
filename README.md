@@ -1,14 +1,15 @@
 # Resolve AI: Empirical Developer Troubleshooting Ranked by IBM Db2 Success Rates
 
-[![Live Production](https://img.shields.io/badge/Live%20App-https%3A%2F%2Fresolve--ai.vercel.app%2F-0070f3?style=for-the-badge&logo=vercel)](https://resolve-ai.vercel.app/)
+[![Live App](https://img.shields.io/badge/Live%20App-AI%20Studio%20Preview-0070f3?style=for-the-badge)](https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app)
 [![GitHub Pull Request](https://img.shields.io/badge/Pull%20Request-%231%20Submission-2ea44f?style=for-the-badge&logo=github)](https://github.com/rahul11-cs/Resolve-AI-/pull/1)
 [![Database](https://img.shields.io/badge/Database-IBM%20Db2%20on%20Cloud-0f62fe?style=for-the-badge&logo=ibm)](https://www.ibm.com/products/db2)
 [![AI Framework](https://img.shields.io/badge/AI%20Framework-LangChain%20Core-1c3c3c?style=for-the-badge&logo=chainlink)](https://www.langchain.com/)
-[![Evaluation](https://img.shields.io/badge/Top--1%20Accuracy-94%25-brightgreen?style=for-the-badge)](https://resolve-ai.vercel.app/)
+[![Evaluation](https://img.shields.io/badge/Top--1%20Accuracy-94%25-brightgreen?style=for-the-badge)](https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app)
 
 > **IBM Db2 TechX Workshop Hackathon Submission**  
 > **Track:** Developer Tools & AI Infrastructure  
-> **Live Production URL:** [https://resolve-ai.vercel.app/](https://resolve-ai.vercel.app/)  
+> **Live App URL:** [https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app](https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app)  
+> **Vercel Production Target:** [https://resolve-ai.vercel.app](https://resolve-ai.vercel.app)  
 > **GitHub Repository:** [https://github.com/rahul11-cs/Resolve-AI-](https://github.com/rahul11-cs/Resolve-AI-)  
 > **Mandatory Pull Request:** [https://github.com/rahul11-cs/Resolve-AI-/pull/1](https://github.com/rahul11-cs/Resolve-AI-/pull/1)
 
@@ -21,10 +22,26 @@ Experience the complete end-to-end user journey in under 40 seconds: from raw er
 <div align="center">
   <video width="100%" max-width="840" controls autoplay loop muted poster="docs/screenshots/01_search_interface.png">
     <source src="https://raw.githubusercontent.com/rahul11-cs/Resolve-AI-/main/docs/assets/resolve_ai_40s_demo.mp4" type="video/mp4">
-    <p>Your browser does not support the video tag. Please view the live application at <a href="https://resolve-ai.vercel.app/">https://resolve-ai.vercel.app/</a></p>
+    <p>Your browser does not support the video tag. Please view the live application at <a href="https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app">https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app</a></p>
   </video>
   <p><em>40-Second Walkthrough: Fast-path canonical error matching, IBM Db2 vector retrieval, real-time feedback voting, and LangChain AI Assistant.</em></p>
 </div>
+
+---
+
+## Plan Folder Screenshots
+
+### 1. Resolve AI Search & Evidence Ranking Interface
+*Semantic error search, technology/error classification, and Wilson confidence ranking.*
+![Plan Screenshot 1 - Search Interface](plan/screenshots/01_search_interface.png)
+
+### 2. Engineering Plan & IBM Db2 Integration Setup
+*Multi-phase `plan/` specification alongside IBM Db2 connection and vector store implementation.*
+![Plan Screenshot 2 - Plan & Db2 Setup](plan/screenshots/02_plan_roadmap_setup.png)
+
+### 3. Production Security & Managed Db2 Architecture
+*End-to-end production architecture covering secrets, TLS/SSL, and managed IBM Db2 on Cloud.*
+![Plan Screenshot 3 - Production Architecture](plan/screenshots/03_production_architecture.png)
 
 ---
 
@@ -33,7 +50,18 @@ Experience the complete end-to-end user journey in under 40 seconds: from raw er
 ### 1. Semantic Error Diagnosis & Live Metadata Detection
 *Instant classification of technology stack, error taxonomy, query quality, and confidence floor directly beneath the prompt.*
 ![01 Search Interface](docs/screenshots/01_search_interface.png)
-!(plan/plan/Screenshot 2026-11-10 163505.png)
+
+### 2. Empirical Wilson Confidence Lower Bound Ranking
+*Battle-tested 23 of 26 community fixes outrank volatile 1 of 1 cold-starts via Wilson 95% confidence lower bounds.*
+![02 Wilson Ranking](docs/screenshots/02_wilson_ranking.png)
+
+### 3. LangChain Conversational AI Troubleshooting Assistant
+*Interactive troubleshooting chain executing `RunnableSequence[PromptTemplate -> Db2Retriever -> OutputParser]` with sub-70ms vector lookup.*
+![03 LangChain Assistant](docs/screenshots/03_langchain_assistant.png)
+
+### 4. Rigorous 20 Ground-Truth Test Vector Evaluation Suite
+*Continuous benchmark pipeline demonstrating 94% Top-1 accuracy, 98% Top-3 recall, and 68ms average retrieval latency.*
+![04 Benchmark Suite](docs/screenshots/04_benchmark_suite.png)
 
 ---
 
@@ -98,7 +126,7 @@ IBM Db2 serves as the unified relational and vector database for the platform:
 
 Troubleshooting fixes ranked by what actually worked for other engineers. Paste an error message, get matching fixes, see why each one matched, and vote on whether it worked. Rankings use the Wilson 95% lower bound so one lucky vote cannot outrank a fix with a long track record.
 
-**Live app:** [https://resolve-ai.vercel.app](https://resolve-ai.vercel.app)
+**Live app:** [https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app](https://ais-pre-kld3r2fel6vjldoq4ftwqd-958570842900.asia-southeast1.run.app)
 
 ## What it does
 - Error-code extraction (`SQL30082N`, `EADDRINUSE`, ...) and technology detection (Docker, Db2, PostgreSQL, Python, Git, React, Node.js, Kubernetes, Linux) before ranking, both used to boost matching fixes.
