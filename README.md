@@ -34,18 +34,6 @@ Experience the complete end-to-end user journey in under 40 seconds: from raw er
 *Instant classification of technology stack, error taxonomy, query quality, and confidence floor directly beneath the prompt.*
 ![01 Search Interface](docs/screenshots/01_search_interface.png)
 
-### 2. Empirical Wilson Confidence Lower Bound Ranking
-*Battle-tested 23 of 26 community fixes outrank volatile 1 of 1 cold-starts via Wilson 95% confidence lower bounds.*
-![02 Wilson Ranking](docs/screenshots/02_wilson_ranking.png)
-
-### 3. LangChain Conversational AI Troubleshooting Assistant
-*Interactive troubleshooting chain executing `RunnableSequence[PromptTemplate -> Db2Retriever -> OutputParser]` with sub-70ms vector lookup.*
-![03 LangChain Assistant](docs/screenshots/03_langchain_assistant.png)
-
-### 4. Rigorous 20 Ground-Truth Test Vector Evaluation Suite
-*Continuous benchmark pipeline demonstrating 94% Top-1 accuracy, 98% Top-3 recall, and 68ms average retrieval latency.*
-![04 Benchmark Suite](docs/screenshots/04_benchmark_suite.png)
-
 ---
 
 **Resolve AI** is an enterprise AI troubleshooting platform that ranks technical resolutions by empirical community success rates stored in **IBM Db2**, replacing fragile search engine keyword queries and hallucinated LLM commands with dense vector similarity and the **Wilson 95% Confidence Interval Lower Bound**.
