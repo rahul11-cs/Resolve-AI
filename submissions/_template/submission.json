@@ -1,0 +1,15 @@
+{
+  "project_name": "Project Name",
+  "project_slug": "project-slug",
+  "track": "Developer Tools & AI Infrastructure",
+  "team_name": "Team Name",
+  "team_members": ["Contributor 1"],
+  "live_url": "https://example.vercel.app/",
+  "github_repo": "https://github.com/example/repo",
+  "pull_request_url": "https://github.com/example/repo/pull/1",
+  "db2_integration": {
+    "tables": ["SOLUTIONS", "FEEDBACK"],
+    "vector_store": "IBM Db2 Vector Search (DB2VS)"
+  },
+  "ai_framework": "langchain"
+}

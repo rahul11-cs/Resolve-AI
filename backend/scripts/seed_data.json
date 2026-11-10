@@ -1,0 +1,335 @@
+[
+  {
+    "problem_id": "ERR_PY_REQ_001",
+    "category": "python",
+    "title": "ModuleNotFoundError: No module named 'requests'",
+    "tags": ["python", "pip", "virtualenv", "import"],
+    "solutions": [
+      {
+        "id": 1,
+        "title": "Install requests package in current active environment",
+        "steps": "1. Verify active python binary: `which python`\n2. Install package via pip: `pip install requests`\n3. Confirm installation: `python -c 'import requests; print(requests.__version__)'`",
+        "worked": 42,
+        "failed": 2,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 2,
+        "title": "Explicitly invoke pip with python3 module flag",
+        "steps": "1. Determine interpreter path: `python3 -c 'import sys; print(sys.executable)'`\n2. Run module install: `python3 -m pip install requests`\n3. Execute script with matching interpreter: `python3 main.py`",
+        "worked": 19,
+        "failed": 1,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 3,
+        "title": "Recreate corrupted Python virtual environment",
+        "steps": "1. Deactivate environment: `deactivate`\n2. Remove corrupted directory: `rm -rf .venv`\n3. Re-initialize venv: `python3 -m venv .venv`\n4. Reinstall dependencies: `source .venv/bin/activate && pip install -r requirements.txt`",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_NODE_PORT_002",
+    "category": "networking",
+    "title": "Error: listen EADDRINUSE: address already in use :::3000",
+    "tags": ["node", "express", "port", "eaddrinuse"],
+    "solutions": [
+      {
+        "id": 4,
+        "title": "Identify PID using lsof and kill the lingering process",
+        "steps": "1. Find process holding port 3000: `lsof -i :3000`\n2. Note the PID from the command output.\n3. Terminate process gracefully: `kill -15 <PID>` (or `kill -9 <PID>` if unresponsive).",
+        "worked": 55,
+        "failed": 3,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 5,
+        "title": "One-liner port killer using npx kill-port",
+        "steps": "1. Run npx kill-port utility directly: `npx kill-port 3000`\n2. Re-launch dev server: `npm run dev`",
+        "worked": 14,
+        "failed": 2,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 6,
+        "title": "Change PORT environment variable in .env file",
+        "steps": "1. Open `.env` or set variable inline: `PORT=3001`\n2. Start server on secondary port: `PORT=3001 npm run dev`",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_NPM_RESOLVE_003",
+    "category": "node",
+    "title": "npm ERR! code ERESOLVE unable to resolve dependency tree",
+    "tags": ["npm", "dependencies", "peerDependencies", "node"],
+    "solutions": [
+      {
+        "id": 7,
+        "title": "Install with --legacy-peer-deps flag",
+        "steps": "1. Run installation ignoring peer dependency mismatches: `npm install --legacy-peer-deps`\n2. Test build output: `npm run build`",
+        "worked": 68,
+        "failed": 7,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 8,
+        "title": "Delete node_modules and package-lock.json and rebuild",
+        "steps": "1. Remove lockfile and vendor files: `rm -rf node_modules package-lock.json`\n2. Clean npm cache: `npm cache clean --force`\n3. Run clean install: `npm install`",
+        "worked": 22,
+        "failed": 4,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 9,
+        "title": "Use npm install --force override",
+        "steps": "1. Execute forceful dependency resolution: `npm install --force`\n2. Verify peer dependencies for breakage.",
+        "worked": 1,
+        "failed": 2,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_DOCKER_SERVICE_004",
+    "category": "docker",
+    "title": "Cannot connect to the Docker service at unix:///var/run/docker.sock",
+    "tags": ["docker", "service", "engine", "linux"],
+    "solutions": [
+      {
+        "id": 10,
+        "title": "Start Docker systemd service",
+        "steps": "1. Start engine service: `sudo systemctl start docker`\n2. Enable automatic start on boot: `sudo systemctl enable docker`\n3. Check service status: `sudo systemctl status docker`",
+        "worked": 38,
+        "failed": 2,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 11,
+        "title": "Add current user to docker group to fix socket permissions",
+        "steps": "1. Create group if not present: `sudo groupadd docker`\n2. Append user to group: `sudo usermod -aG docker $USER`\n3. Refresh shell session: `newgrp docker`\n4. Verify without sudo: `docker ps`",
+        "worked": 31,
+        "failed": 3,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 12,
+        "title": "Restart Docker Desktop application (macOS/Windows)",
+        "steps": "1. Quit Docker Desktop from the system tray / menu bar.\n2. Wait 10 seconds for VM shutdown.\n3. Relaunch Docker Desktop and verify whale icon stabilizes.",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_GIT_CONFLICT_005",
+    "category": "git",
+    "title": "Automatic merge failed; fix conflicts and then commit the result",
+    "tags": ["git", "merge", "conflict", "rebase"],
+    "solutions": [
+      {
+        "id": 13,
+        "title": "Resolve conflict markers manually and commit",
+        "steps": "1. Check conflicted files: `git status`\n2. Open files and resolve `<<<<<<<`, `=======`, and `>>>>>>>` markers.\n3. Stage resolved files: `git add <filename>`\n4. Complete merge commit: `git commit -m 'Merge branch and resolve conflicts'`",
+        "worked": 49,
+        "failed": 1,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 14,
+        "title": "Abort current merge safely to reset working tree",
+        "steps": "1. Abort the failed merge: `git merge --abort`\n2. Ensure working directory is clean: `git status`",
+        "worked": 27,
+        "failed": 0,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 15,
+        "title": "Checkout entire version from target or incoming branch",
+        "steps": "1. Prefer current branch: `git checkout --ours <filename>`\n2. Or prefer incoming branch: `git checkout --theirs <filename>`\n3. Stage and commit: `git add <filename> && git commit`",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_DB2_AUTH_006",
+    "category": "db2",
+    "title": "IBM Db2 SQL30082N Security processing failed / Connection authorization failure",
+    "canonical_code": "SQL30082N",
+    "aliases": [
+      "db2 login failed",
+      "db2 authentication failed",
+      "invalid db2 credentials",
+      "sql30082n",
+      "security processing failed",
+      "invalid credentials",
+      "db2 authorization failed",
+      "sqlcode=-30082",
+      "sqlstate=08001",
+      "authentication failed for db2inst1"
+    ],
+    "tags": ["db2", "ibm_db", "database", "sqlstate-08001", "sqlcode-30082"],
+    "solutions": [
+      {
+        "id": 16,
+        "title": "Verify user credentials and instance container password",
+        "steps": "1. Confirm DB2USER matches instance user (typically `db2inst1`).\n2. If using container, ensure container has finished initialization: `docker logs db2`\n3. Reset password inside container: `docker exec -it db2 bash -c 'echo \"db2inst1:new_password\" | chpasswd'`",
+        "worked": 18,
+        "failed": 1,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 17,
+        "title": "Verify Db2 communication protocol and port configuration",
+        "steps": "1. Inside Db2 container run: `su - db2inst1 -c 'db2set DB2COMM=TCPIP'`\n2. Check listener port: `su - db2inst1 -c 'db2 get dbm cfg | grep -i svcename'`\n3. Restart Db2 instance: `su - db2inst1 -c 'db2stop force && db2start'`",
+        "worked": 12,
+        "failed": 2,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 18,
+        "title": "Check SSL/TLS connection parameter mismatch",
+        "steps": "1. Verify whether client specifies `SECURITY=SSL` when server uses plain TCP/IP.\n2. For plain connections ensure `PROTOCOL=TCPIP` and port is `50000` (or `50001` for SSL).",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_CORS_ORIGIN_007",
+    "category": "networking",
+    "title": "CORS error: No 'Access-Control-Allow-Origin' header is present",
+    "tags": ["cors", "fetch", "express", "fastapi"],
+    "solutions": [
+      {
+        "id": 19,
+        "title": "Configure CORSMiddleware in FastAPI backend",
+        "steps": "1. Import middleware: `from fastapi.middleware.cors import CORSMiddleware`\n2. Add middleware allowing client origin: `app.add_middleware(CORSMiddleware, allow_origins=['https://resolve-ai.vercel.app'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])`\n3. Restart backend server.",
+        "worked": 52,
+        "failed": 2,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 20,
+        "title": "Configure VITE_API_URL environment variable for API endpoint routing",
+        "steps": "1. In `.env.local` set: `VITE_API_URL=https://resolve-ai-backend.railway.app`\n2. In frontend fetch calls, read endpoint from `import.meta.env.VITE_API_URL`.",
+        "worked": 41,
+        "failed": 1,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 21,
+        "title": "Add CORS headers in Express server",
+        "steps": "1. Install cors: `npm install cors`\n2. In `server.ts`: `import cors from 'cors'; app.use(cors());`\n3. Restart server.",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_SSH_KEY_008",
+    "category": "security",
+    "title": "Permission denied (publickey) when connecting via SSH",
+    "tags": ["ssh", "git", "github", "publickey"],
+    "solutions": [
+      {
+        "id": 22,
+        "title": "Add SSH private key to ssh-agent",
+        "steps": "1. Start agent in background: `eval \"$(ssh-agent -s)\"`\n2. Add private key: `ssh-add ~/.ssh/id_ed25519` (or `~/.ssh/id_rsa`)\n3. Test GitHub connection: `ssh -T git@github.com`",
+        "worked": 63,
+        "failed": 4,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 23,
+        "title": "Fix directory and key file permissions",
+        "steps": "1. Set .ssh directory permissions: `chmod 700 ~/.ssh`\n2. Set private key permissions: `chmod 600 ~/.ssh/id_ed25519`\n3. Set public key permissions: `chmod 644 ~/.ssh/id_ed25519.pub`\n4. Re-test SSH connection.",
+        "worked": 29,
+        "failed": 1,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 24,
+        "title": "Generate new modern Ed25519 SSH keypair",
+        "steps": "1. Generate key: `ssh-keygen -t ed25519 -C 'your_email@example.com'`\n2. Copy public key: `cat ~/.ssh/id_ed25519.pub`\n3. Paste into GitHub/GitLab SSH keys settings.",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_TS_PROPERTY_009",
+    "category": "typescript",
+    "title": "Property 'X' does not exist on type 'Y' (TS2339)",
+    "tags": ["typescript", "interface", "types", "ts2339"],
+    "solutions": [
+      {
+        "id": 25,
+        "title": "Extend interface or type definition with optional property",
+        "steps": "1. Locate interface definition.\n2. Add declared field with type: `property_name?: string;`\n3. Re-run TypeScript compile check: `npx tsc --noEmit`",
+        "worked": 34,
+        "failed": 2,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 26,
+        "title": "Use type guard or narrowing before accessing property",
+        "steps": "1. Check property existence with in operator: `if ('propertyName' in object) { ... }`\n2. Or define custom type guard: `function isX(val: unknown): val is X { ... }`",
+        "worked": 15,
+        "failed": 1,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 27,
+        "title": "Cast type using unknown intermediary (temporary fix)",
+        "steps": "1. Narrow via unknown: `(myVar as unknown as TargetType).propertyName`\n2. Add TODO comment to refactor schema properly.",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  },
+  {
+    "problem_id": "ERR_REACT_HYDRATION_010",
+    "category": "react",
+    "title": "Hydration failed because the initial UI does not match what was rendered",
+    "tags": ["react", "ssr", "hydration", "nextjs"],
+    "solutions": [
+      {
+        "id": 28,
+        "title": "Guard client-only state using useEffect and mounted flag",
+        "steps": "1. Create mounted state: `const [mounted, setMounted] = useState(false);`\n2. Set mounted true in effect: `useEffect(() => setMounted(true), []);`\n3. Render placeholder until mounted: `if (!mounted) return null;`",
+        "worked": 47,
+        "failed": 3,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 29,
+        "title": "Audit invalid HTML DOM nesting (e.g., div inside p tag)",
+        "steps": "1. Inspect browser console warning for exact DOM tag mismatch.\n2. Ensure `<p>` tags do not enclose `<div>`, `<section>`, or `<table>` elements.",
+        "worked": 25,
+        "failed": 2,
+        "source": "COMMUNITY"
+      },
+      {
+        "id": 30,
+        "title": "Use suppressHydrationWarning attribute on dynamic text",
+        "steps": "1. On element rendering timestamps or random numbers, add attribute: `<span suppressHydrationWarning>{time}</span>`",
+        "worked": 0,
+        "failed": 0,
+        "source": "AI_ESTIMATE"
+      }
+    ]
+  }
+]
