@@ -33,6 +33,7 @@ Experience the complete end-to-end user journey in under 40 seconds: from raw er
 ### 1. Semantic Error Diagnosis & Live Metadata Detection
 *Instant classification of technology stack, error taxonomy, query quality, and confidence floor directly beneath the prompt.*
 ![01 Search Interface](docs/screenshots/01_search_interface.png)
+!(plan/plan/Screenshot 2026-11-10 163505.png)
 
 ---
 
